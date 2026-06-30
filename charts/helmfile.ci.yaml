@@ -1,6 +1,8 @@
 # CI-only stub for Trivy chart scanning.
 
-repositories: []
+repositories:
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
 
 releases:
   - name: security-hardening
@@ -8,3 +10,8 @@ releases:
     namespace: kube-system
     values:
       - security-hardening/values.yaml
+
+  - name: renovate-canary
+    chart: bitnami/nginx
+    version: 15.0.0
+    namespace: default
