@@ -4,6 +4,8 @@
   "dependencyDashboard": true,
   "enabledManagers": ["helmv3", "helmfile"],
   "helmfile": {
-    "fileMatch": ["^charts/helmfile\\.ci\\.yaml$"]
+    "managerFilePatterns": [
+      "/^charts/helmfile\\.ci\\.yaml$/"
+    ]
   }
 }
