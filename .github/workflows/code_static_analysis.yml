@@ -54,6 +54,8 @@ jobs:
 
       - name: Install trivy # https://github.com/aquasecurity/setup-trivy
         uses: aquasecurity/setup-trivy@v0.2.6
+        with:
+          version: v0.71.2 # keep in sync with charts/Makefile and version in running clusters
 
       - name: Scan charts's templates
         run: >-
