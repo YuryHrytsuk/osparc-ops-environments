@@ -19,29 +19,29 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
       - name: Set up Python
-        uses: actions/setup-python@v6  # defaults to .python-version
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6  # defaults to .python-version
 
       - name: Show python version
         run: python --version
 
       - name: Run pre-commit
-        uses: pre-commit/action@v3.0.1
+        uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
 
   trivy-scan-charts:
     runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
       - name: Load ci.env into job environment
         run: cat charts/ci.env >> "$GITHUB_ENV"
 
       - name: Render charts's templates
-        uses: helmfile/helmfile-action@v2.4.4
+        uses: helmfile/helmfile-action@f6f7844b9e6d9f5ac8cf4cdae8ada1a42755c036 # v2.4.4
         with:
           helmfile-version: v0.165.0 # keep in sync with charts/Makefile and version in running clusters
           helmfile-workdirectory: charts/
@@ -53,7 +53,7 @@ jobs:
             --output-dir-template={{.OutputDir}}
 
       - name: Install trivy # https://github.com/aquasecurity/setup-trivy
-        uses: aquasecurity/setup-trivy@v0.2.6
+        uses: aquasecurity/setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514 # v0.2.6
         with:
           version: v0.71.2 # keep in sync with charts/Makefile and version in running clusters
 
