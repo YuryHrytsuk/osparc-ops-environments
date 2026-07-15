@@ -18,6 +18,9 @@ CHART_DIRS := $(wildcard $(REPO_BASE_DIR)/charts/*/)
 # NOTE: keep in sync with github workflows and version in running clusters
 HELMFILE_EXPECTED_VERSION := 0.165.0
 
+# renovate: datasource=github-releases depName=aquasecurity/trivy extractVersion=^v(?<version>.+)$
+TRIVY_EXPECTED_VERSION := 0.71.2
+
 # Example of usage:
 # make helmfile-diff HELMFILE_EXTRA_ARGS='--selector app=adminer'
 HELMFILE_EXTRA_ARGS ?=
