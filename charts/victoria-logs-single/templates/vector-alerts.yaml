@@ -34,7 +34,7 @@ spec:
           annotations:
             summary: >-
               Vector sink {{`{{ $labels.component_id }}`}} ({{`{{ $labels.component_type }}`}})
-              has been failing continuously. No logs from this source are being gathered.
+              has errors
 
         - alert: VectorBufferNearlyFull
           expr: |
@@ -61,7 +61,7 @@ spec:
           annotations:
             summary: >-
               Vector component {{`{{ $labels.component_id }}`}} ({{`{{ $labels.component_type }}`}})
-              is dropping events ({{`{{ $value | humanize }}`}}/s). These logs are lost permanently.
+              discards events ({{`{{ $value | humanize }}`}}/s).
 
         - alert: VectorSourceNoEventsReceived
           expr: |
